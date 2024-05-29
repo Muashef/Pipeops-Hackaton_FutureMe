@@ -35,7 +35,7 @@ const Signup = () => {
               <input
                 id="username"
                 type="text"
-                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] border border-[#F8F8F8] outline-none"
+                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
                 name="username"
                 autoComplete="off"
                 autoFocus
@@ -56,7 +56,7 @@ const Signup = () => {
               <input
                 id="email"
                 type="text"
-                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] border border-[#F8F8F8] outline-none"
+                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
                 name="email"
                 autoComplete="off"
                 placeholder="Enter your email"
@@ -88,7 +88,7 @@ const Signup = () => {
               <input
                 id="password-input"
                 type={showPassword ? "text" : "password"}
-                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] border border-[#F8F8F8] outline-none"
+                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
                 name="password"
                 required
                 autoComplete="off"

@@ -1,10 +1,11 @@
-import React from 'react'
-import './App.css'
+import React from "react";
+import "./App.css";
+import "./style/styles.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from './components/Home';
-import Login from './pages/Auth/Login';
-import Signup from './pages/Auth/Signup';
-import Forgotpassword from './pages/Auth/Forgotpassword';
+import Home from "./pages/Home";
+import Login from "./pages/Auth/Login";
+import Signup from "./pages/Auth/Signup";
+import Forgotpassword from "./pages/Auth/Forgotpassword";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,10 +18,10 @@ function App() {
   return (
     <>
       <div>
-          <RouterProvider router={router} />
-        </div>
+        <RouterProvider router={router} />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

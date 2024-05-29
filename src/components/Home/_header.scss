@@ -1,0 +1,42 @@
+$dark-blue: 334158;
+
+.header {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // background: url('../assets/blob.svg');
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100px;
+  }
+
+  div {
+    z-index: 30;
+    position: relative;
+  }
+
+  p {
+    color: $dark-blue;
+  }
+  h1 {
+    max-width: 700px;
+    width: 70%;
+
+    line-height: normal;
+    font-size: 5em;
+    color: white;
+    margin: auto;
+    @media screen and (max-width: 700px) {
+      width: 90%;
+      font-size: 4em;
+    }
+  }
+}

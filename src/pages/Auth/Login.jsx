@@ -32,13 +32,13 @@ const Login = () => {
               >
                 Email
               </label>
-              <div className="absolute inset-y-0 right-0 top-5 pr-3 flex items-center pointer-events-none">
-                <CiMail className="h-4 w-4 text-gray-400" aria-hidden="true" />
+              <div className="absolute inset-y-0 left-3 top-6 pr-3 flex items-center pointer-events-none">
+                <CiMail className="h-6 w-6 text-gray-400" aria-hidden="true" />
               </div>
               <input
                 id="email"
                 type="text"
-                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
+                className="rounded-md pl-10 pr-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
                 name="email"
                 autoComplete="off"
                 placeholder="Enter your email"
@@ -53,7 +53,7 @@ const Login = () => {
                     >
                         Password
                     </label>
-                    <p className='text-sm text-[#334158] font-normal'>Forgot password?</p>
+                    <Link to="/forgot-password" className='text-sm text-[#334158] font-normal'>Forgot password?</Link>
               </div>
               <div className="absolute inset-y-0 right-0 pr-3 top-5 flex items-center">
                 {showPassword ? (

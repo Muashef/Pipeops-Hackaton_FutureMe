@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <div>
       <util.Header />
+      <util.Transform />
     </div>
   );
 };

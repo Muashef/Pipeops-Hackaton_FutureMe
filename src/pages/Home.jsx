@@ -6,6 +6,8 @@ const Home = () => {
     <div>
       <util.Header />
       <util.Transform />
+      <util.How />
+      <util.Footer />
     </div>
   );
 };

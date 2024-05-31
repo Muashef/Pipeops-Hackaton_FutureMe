@@ -34,8 +34,6 @@ $dark-blue: 334158;
     transform: translateX(-50%);
   }
 
-  
-
   @media screen and (max-width: 800px) {
     .bg__header {
       bottom: 10px;
@@ -99,6 +97,7 @@ $dark-blue: 334158;
   font-family: "Inter", sans-serif;
 
   text-align: center;
+  margin: 20vh auto !important;
 
   h3 {
     color: $dark-blue;
@@ -149,6 +148,118 @@ $dark-blue: 334158;
           margin: auto;
         }
       }
+    }
+  }
+}
+
+.how {
+  &__list__item {
+    padding: 40px 80px;
+    box-sizing: border-box;
+    border: 1px solid #f97699;
+    text-align: start;
+    border-radius: 10px;
+    box-shadow: 12px 12px 5px 5px rgba(128, 128, 128, 0.473);
+    position: relative;
+    background: white;
+    width: 80%;
+
+    h4 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    p {
+      font-family: "Inter", sans-serif;
+    }
+
+    &:nth-child(1) {
+      position: relative;
+    }
+    &:nth-child(2) {
+      left: 10%;
+      position: relative;
+      z-index: 100;
+      top: -25px;
+    }
+    &:nth-child(3) {
+      left: 20%;
+      top: -50px;
+      position: relative;
+      z-index: 200;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      left: 0px !important;
+      top: 0px !important;
+      margin: 15px 0px;
+      box-shadow: 12px 12px 5px rgba(128, 128, 128, 0.473);
+    }
+
+    @media screen and (max-width: 470px) {
+      padding: 20px 40px;
+    }
+  }
+}
+
+.footer {
+  padding-top: 20vh;
+  // height: 60vh;
+  // padding-bottom: 0px;
+  text-align: center;
+  background-image: url(../assets/footer_bg.png), url(../assets/footer_2.png),
+    linear-gradient(45deg, #000, #000);
+  background-position: left center, bottom right, center;
+  background-repeat: no-repeat;
+  background-size: 10%, 10%, cover;
+
+  h3 {
+    font-family: "Poppins", sans-serif;
+    max-width: 400px;
+    width: 95%;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: white;
+    margin: 20px auto;
+  }
+
+  .footer__link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    background: url("../assets/blob_bg.svg");
+    background-repeat: no-repeat;
+    width: fit-content;
+    margin: auto;
+    background-position: center;
+    background-size: 100%;
+    padding: 70px;
+    background-size: contain;
+
+    .get-started {
+      padding: 40px;
+      color: white;
+
+      // background: #000;
+    }
+  }
+
+  .contact {
+    margin-top: 20vh;
+    height: 50px;
+    display: flex;
+    background: white;
+    align-items: center;
+    justify-content: space-between;
+    img{
+      // height: 90%;
+    }
+    .icons{
+      display: flex;
     }
   }
 }

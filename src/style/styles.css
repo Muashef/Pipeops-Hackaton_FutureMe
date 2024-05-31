@@ -222,15 +222,23 @@
   color: white;
 }
 .footer .contact {
+  background: white;
+  padding: 20px 0px;
   margin-top: 20vh;
   height: 50px;
+}
+.footer .contact .container {
   display: flex;
-  background: white;
   align-items: center;
   justify-content: space-between;
 }
+.footer .contact img {
+  width: 40%;
+}
 .footer .contact .icons {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .container {

@@ -249,17 +249,25 @@ $dark-blue: 334158;
   }
 
   .contact {
+    background: white;
+
+    padding: 20px 0px;
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     margin-top: 20vh;
     height: 50px;
-    display: flex;
-    background: white;
-    align-items: center;
-    justify-content: space-between;
-    img{
+
+    img {
+      width: 40%;
       // height: 90%;
     }
-    .icons{
-      display: flex;
+    .icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
   }
 }

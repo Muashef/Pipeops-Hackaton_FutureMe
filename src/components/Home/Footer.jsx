@@ -16,13 +16,22 @@ export function Footer() {
       </div>
 
       <div className="contact">
-        <Link to={"/"}>
-          <img src={logo} alt="Logo Image" />
-        </Link>
-        <div className="icons">
-          <FaTwitter />
-          <FaFacebookF />
-          <FaInstagram />
+        <div className="container">
+          {" "}
+          <Link to={"/"}>
+            <img src={logo} alt="Logo Image" />
+          </Link>
+          <div className="icons">
+            <Link to={"/twitter"}>
+              <FaTwitter size={30} />
+            </Link>
+            <Link to={"/facebook"}>
+              <FaFacebookF size={30} />
+            </Link>
+            <Link to={"/ig"}>
+              <FaInstagram size={30} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

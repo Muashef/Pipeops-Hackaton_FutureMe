@@ -264,6 +264,7 @@
 
 .footer {
   padding-top: 20vh;
+  margin-bottom: 20px;
   text-align: center;
   background-image: url(../assets/footer_bg.png), url(../assets/footer_2.png), linear-gradient(45deg, #000, #000);
   background-position: left center, bottom right, center;

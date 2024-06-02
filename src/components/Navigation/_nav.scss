@@ -78,9 +78,6 @@
         text-transform: uppercase;
         font-size: 1.5em;
         margin: 10px 0px;
-        animation: name duration timing-function delay iteration-count direction
-          fill-mode;
-
         a {
           font-family: "Inter", sans-serif;
           color: white;
@@ -88,7 +85,7 @@
       }
       @for $i from 1 through 4 {
         li:nth-child(#{$i}) {
-          animation: moveIn calc(1.2s + ($i * 0.3s)) 1;
+          animation: moveIn calc(0.1s + ($i * 0.3s)) 1;
         }
       }
     }
@@ -96,11 +93,11 @@
     @keyframes moveIn {
       from {
         opacity: 0;
-        transform: translateX(100%);
+        transform: translateX(100%) translateY(25px);
       }
       to {
         opacity: 1;
-        transform: translateX(0%);
+        transform: translateX(0%) translateY(0px);
       }
     }
     .get-started {
@@ -114,7 +111,7 @@
       overflow: hidden;
       font-size: 1.5em;
 
-      animation: moveIn 2.4s 1;
+      animation: moveIn 1.5s 1;
 
       a {
         font-family: "Poppins", sans-serif;

@@ -26,13 +26,37 @@
   height: 40px;
   width: 40px;
 }
+@keyframes movement {
+  0% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
 .header .lock {
   left: 20%;
   top: 10%;
+  animation: movement 3s infinite;
+}
+@keyframes movementRight {
+  0% {
+    transform: translateY(10px) scale(1);
+  }
+  50% {
+    transform: translateY(0px) scale(1.1);
+  }
+  100% {
+    transform: translateY(10px) scale(1);
+  }
 }
 .header .unlock {
   right: 20%;
   top: 40%;
+  animation: movementRight 2s infinite;
 }
 @media screen and (max-width: 1024px) {
   .header .unlock {
@@ -145,6 +169,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
+  background-color: white;
   background: url("../assets/blob.svg");
   background-repeat: no-repeat;
   width: fit-content;
@@ -285,6 +310,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
+  background-color: #f97699;
   background: url("../assets/blob_bg.svg");
   background-repeat: no-repeat;
   width: fit-content;

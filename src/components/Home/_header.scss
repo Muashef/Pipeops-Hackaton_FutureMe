@@ -328,8 +328,9 @@ $dark-blue: 334158;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-    background-color: #f97699;
-    background: url("../assets/blob_bg.svg");
+    position: relative;
+    // background-color: #f97699;
+    // background: url("../assets/blob_bg.svg");
     background-repeat: no-repeat;
     width: fit-content;
     margin: auto;
@@ -337,6 +338,10 @@ $dark-blue: 334158;
     background-size: 100%;
     padding: 70px;
     background-size: contain;
+
+    .svgContainer{
+      
+    }
 
     .get-started {
       padding: 40px;

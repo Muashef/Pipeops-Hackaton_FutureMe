@@ -310,8 +310,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  background-color: #f97699;
-  background: url("../assets/blob_bg.svg");
+  position: relative;
   background-repeat: no-repeat;
   width: fit-content;
   margin: auto;

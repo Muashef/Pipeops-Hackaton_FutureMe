@@ -11,6 +11,58 @@ $dark-blue: 334158;
   flex-direction: column;
   overflow: hidden;
 
+  .lock,
+  .unlock {
+    // padding: 5px;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-shadow: 2px 10px 20px rgba(255, 255, 255, 0.623),
+      2px 20px 20px rgba(255, 255, 255, 0.726);
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  .lock {
+    left: 20%;
+    top: 10%;
+  }
+  .unlock {
+    right: 20%;
+    top: 40%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .unlock {
+      right: 5%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .unlock {
+      right: 5%;
+      top: 60%;
+    }
+    .lock {
+      left: 5%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .unlock {
+      right: 5%;
+      top: 80%;
+    }
+    .lock {
+      left: 5%;
+    }
+  }
   .bg__header {
     position: absolute;
     width: 200px;
@@ -19,9 +71,31 @@ $dark-blue: 334158;
 
     &.bg__left {
       left: 10%;
+
+      @media screen and (max-width: 550px) {
+        // display: none;
+        width: 150px;
+        height: 150px;
+      }
+      @media screen and (max-width: 450px) {
+        // display: none;
+        display: none;
+
+      }
     }
     &.bg__right {
       right: 10%;
+      @media screen and (max-width: 550px) {
+        //  left: 50%;
+        //  right: 0%;
+        //  transform: translateX(-50%);
+        bottom: 0%;
+        width: 150px;
+        height: 150px;
+      }
+      @media screen and (max-width: 450px) {
+        display: none;
+      }
     }
   }
   &__bg {
@@ -46,6 +120,12 @@ $dark-blue: 334158;
     }
     &__bg {
       transform: translateX(-50%) scale(1.2);
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &__bg {
+      transform: translateX(-50%) scale(2.2);
     }
   }
 
@@ -262,6 +342,10 @@ $dark-blue: 334158;
 
     img {
       width: 40%;
+
+      @media screen and (max-width: 500px) {
+        width: 60%;
+      }
       // height: 90%;
     }
     .icons {

@@ -18,7 +18,7 @@ const data = [
 ];
 export function How() {
   return (
-    <div className="how container features">
+    <section className="how container features">
       <h3>How it works</h3>
       <p className="subtitle">
         Discovering your ideal career path is simple with our platform.
@@ -33,6 +33,6 @@ export function How() {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

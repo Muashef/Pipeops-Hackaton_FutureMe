@@ -1,0 +1,127 @@
+.nav {
+  padding: 20px 0px;
+  background: #f97699;
+  //   position: relative;
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+
+    .hamburger {
+      display: none;
+    }
+    .logo {
+      //   width: 30%;
+      // width: 100px;
+      img {
+        width: 150px;
+      }
+    }
+
+    ul {
+      flex: 2;
+      li {
+        display: inline;
+        margin: 0px 10px;
+        a {
+          font-family: "Inter", sans-serif;
+          color: white;
+        }
+      }
+    }
+
+    .get-started {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      overflow: hidden;
+
+      a {
+        font-family: "Poppins", sans-serif;
+        padding: 15px 20px;
+        color: #334158;
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media screen and (max-width: 780px) {
+    .desktop ul,
+    .desktop .get-started {
+      display: none;
+    }
+
+    .hamburger {
+      display: block;
+      margin-right: 10px;
+    }
+  }
+
+  .mobile {
+    background: #f97699;
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    bottom: 0px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+
+    ul {
+      li {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        margin: 10px 0px;
+        animation: name duration timing-function delay iteration-count direction
+          fill-mode;
+
+        a {
+          font-family: "Inter", sans-serif;
+          color: white;
+        }
+      }
+      @for $i from 1 through 4 {
+        li:nth-child(#{$i}) {
+          animation: moveIn calc(1.2s + ($i * 0.3s)) 1;
+        }
+      }
+    }
+
+    @keyframes moveIn {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+    .get-started {
+      text-transform: uppercase;
+      font-weight: 500;
+
+      margin: 20px 0px;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 1.5em;
+
+      animation: moveIn 2.4s 1;
+
+      a {
+        font-family: "Poppins", sans-serif;
+        padding: 15px 20px;
+        color: #334158;
+        font-weight: 500;
+      }
+    }
+  }
+}

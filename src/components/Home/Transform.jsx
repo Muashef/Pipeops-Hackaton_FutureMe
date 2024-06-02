@@ -25,7 +25,7 @@ const data = [
 
 export function Transform() {
   return (
-    <section className="features container">
+    <section className="features container" id="features">
       <h3>Transform Your Future</h3>
       <p className="subtitle">
         Unlock your career potential with our innovative platform designed to

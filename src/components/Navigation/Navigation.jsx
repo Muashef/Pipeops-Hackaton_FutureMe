@@ -10,11 +10,11 @@ const links = [
   },
   {
     label: "Features",
-    link: "/",
+    link: "/#features",
   },
   {
     label: "How It Works",
-    link: "/",
+    link: "/#how",
   },
   {
     label: "Contact",
@@ -51,7 +51,9 @@ function Navigation() {
           {links.map((element, index) => {
             return (
               <li key={index}>
-                <Link to={element.link}>{element.label}</Link>
+                <Link to={element.link} scroll={false}>
+                  {element.label}
+                </Link>
               </li>
             );
           })}

@@ -47,13 +47,13 @@ $dark-blue: 334158;
   }
   @keyframes movementRight {
     0% {
-      transform: translateY(10px) scale(1);
+      transform: translateY(10px);
     }
     50% {
-      transform: translateY(0px) scale(1.1);
+      transform: translateY(0px);
     }
     100% {
-      transform: translateY(10px) scale(1);
+      transform: translateY(10px);
     }
   }
   .unlock {
@@ -328,9 +328,8 @@ $dark-blue: 334158;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-    position: relative;
-    // background-color: #f97699;
-    // background: url("../assets/blob_bg.svg");
+    background-color: #f97699;
+    background: url("../assets/blob_bg.svg");
     background-repeat: no-repeat;
     width: fit-content;
     margin: auto;
@@ -339,13 +338,13 @@ $dark-blue: 334158;
     padding: 70px;
     background-size: contain;
 
-    .svgContainer{
-      
-    }
-
     .get-started {
       padding: 40px;
       color: white;
+
+      @media screen and (max-width: 320px) {
+        padding: 30px;
+      }
     }
   }
 

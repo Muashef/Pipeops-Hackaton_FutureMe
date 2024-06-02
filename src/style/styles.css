@@ -44,13 +44,13 @@
 }
 @keyframes movementRight {
   0% {
-    transform: translateY(10px) scale(1);
+    transform: translateY(10px);
   }
   50% {
-    transform: translateY(0px) scale(1.1);
+    transform: translateY(0px);
   }
   100% {
-    transform: translateY(10px) scale(1);
+    transform: translateY(10px);
   }
 }
 .header .unlock {
@@ -310,7 +310,8 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  position: relative;
+  background-color: #f97699;
+  background: url("../assets/blob_bg.svg");
   background-repeat: no-repeat;
   width: fit-content;
   margin: auto;
@@ -322,6 +323,11 @@
 .footer .footer__link .get-started {
   padding: 40px;
   color: white;
+}
+@media screen and (max-width: 320px) {
+  .footer .footer__link .get-started {
+    padding: 30px;
+  }
 }
 .footer .contact {
   background: white;

@@ -1,27 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/whiteLogo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-const links = [
-  {
-    label: "Solutions",
-    link: "/",
-  },
-  {
-    label: "Features",
-    link: "/#features",
-  },
-  {
-    label: "How It Works",
-    link: "/#how",
-  },
-  {
-    label: "Contact",
-    link: "/",
-  },
-];
-function Navigation() {
+function Navigation({ links }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -31,14 +13,18 @@ function Navigation() {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   };
 
-  // Use useEffect to apply overflow style on state change
+  const handleMoblieClick = () => {
+    document.body.style.overflow = "auto";
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     handleScroll();
-    // Clean up function to remove style on unmount (optional)
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
+
   return (
     <div className="nav">
       <div className="container nav__body desktop">
@@ -51,9 +37,7 @@ function Navigation() {
           {links.map((element, index) => {
             return (
               <li key={index}>
-                <Link to={element.link} scroll={false}>
-                  {element.label}
-                </Link>
+                <Link to={element.link}>{element.label}</Link>
               </li>
             );
           })}
@@ -76,7 +60,9 @@ function Navigation() {
             {links.map((element, index) => {
               return (
                 <li key={index}>
-                  <Link to={element.link}>{element.label}</Link>
+                  <Link to={element.link} onClick={handleMoblieClick}>
+                    {element.label}
+                  </Link>
                 </li>
               );
             })}

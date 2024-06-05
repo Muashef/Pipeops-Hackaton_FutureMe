@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import background from "../../assets/hone_bg.png";
 import bgBottomLeft from "../../assets/header__bg.png";

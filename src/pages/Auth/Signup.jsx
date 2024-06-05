@@ -5,13 +5,22 @@ import FB from '../../assets/fb.svg';
 import Apple from '../../assets/apple.svg';
 import { CiMail } from "react-icons/ci";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+      };
+
+      const handleSignUp = async (e) => {
+  
       };
 
   return (
@@ -27,7 +36,7 @@ const Signup = () => {
           <form className="mt-5">
             <div className="mb-4">
               <label
-                htmlFor="email"
+                htmlFor="name"
                 className="text-lg font-normal text-[#334158]"
               >
                 Name
@@ -39,6 +48,8 @@ const Signup = () => {
                 name="username"
                 autoComplete="off"
                 autoFocus
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="Enter your name"
                 required
               />
@@ -59,6 +70,8 @@ const Signup = () => {
                 className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
                 name="email"
                 autoComplete="off"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
               />
@@ -93,6 +106,8 @@ const Signup = () => {
                 required
                 autoComplete="off"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <p className="text-[#334158] text-sm font-normal">
@@ -116,7 +131,7 @@ const Signup = () => {
               type="submit"
               className="w-full py-3 px-4 mt-8 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#F97699]"
             >
-              Sign Up
+              {loading ? "Loading" : "Sign Up"}
             </button>
           </form>
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4">

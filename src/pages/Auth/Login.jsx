@@ -5,13 +5,21 @@ import FB from '../../assets/fb.svg';
 import Apple from '../../assets/apple.svg';
 import { CiMail } from "react-icons/ci";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+      };
+
+      const handleLogin = (e) => {
+        
       };
 
   return (
@@ -42,6 +50,8 @@ const Login = () => {
                 name="email"
                 autoComplete="off"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -78,13 +88,15 @@ const Login = () => {
                 required
                 autoComplete="off"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button
               type="submit"
               className="w-full py-3 px-4 mt-8 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#F97699]"
             >
-              Sign In
+              {loading ? "Loading" : "Sign In"}
             </button>
           </form>
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4">

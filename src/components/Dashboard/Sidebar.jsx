@@ -5,6 +5,7 @@ import career from "../../assets/solid-icon-2.svg";
 import profile from "../../assets/solid-icon-3.svg";
 import notifications from "../../assets/solid-icon-4.svg";
 import settings from "../../assets/solid-icon-5.svg";
+import { Link } from 'react-router-dom'
 import SidebarLInk from "./SidebarLInk";
 import Badge from "./Badge";
 import SidebarUser from "./SidebarUser";
@@ -24,7 +25,9 @@ function Sidebar() {
           <SidebarLInk img={notifications} text="Notifications">
             <Badge />
           </SidebarLInk>
+          <Link to={'/settings'}>
           <SidebarLInk img={settings} text="Settings" />
+          </Link>
         </ul>
       </div>
       <SidebarUser

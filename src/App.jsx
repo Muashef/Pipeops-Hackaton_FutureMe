@@ -6,6 +6,7 @@ import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import Forgotpassword from "./pages/Auth/Forgotpassword";
 import Dashboard from "./pages/Dashboard";
+import Settings from "./components/Dashboard/Settings";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,6 +15,7 @@ function App() {
     { path: "/login", element: <Login /> },
     { path: "/forgot-password", element: <Forgotpassword /> },
     { path: "/dashboard", element: <Dashboard /> },
+    { path: "/settings", element: <Settings />}
   ]);
 
   return (

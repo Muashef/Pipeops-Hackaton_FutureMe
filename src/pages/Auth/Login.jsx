@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import AuthLogo from '../../assets/auth_logo.svg';
-import Goggle from '../../assets/google.svg';
-import FB from '../../assets/fb.svg';
-import Apple from '../../assets/apple.svg';
+import React, { useState } from "react";
+import AuthLogo from "../../assets/auth_logo.svg";
+import Goggle from "../../assets/google.svg";
+import FB from "../../assets/fb.svg";
+import Apple from "../../assets/apple.svg";
 import { CiMail } from "react-icons/ci";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-
+import auth from "../../../firebase.config";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,13 +14,26 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-      };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-      const handleLogin = (e) => {
-        
-      };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        //TO DO : Handle case after sign in
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // TODO: Handle error case.
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="flex h-screen">
@@ -56,14 +69,19 @@ const Login = () => {
               />
             </div>
             <div className="mb-2 relative">
-                <div className='flex items-end justify-between mb-1'>
-                    <label
-                        htmlFor="password"
-                        className="text-lg font-normal text-[#334158]"
-                    >
-                        Password
-                    </label>
-                    <Link to="/forgot-password" className='text-sm text-[#334158] font-normal'>Forgot password?</Link>
+              <div className="flex items-end justify-between mb-1">
+                <label
+                  htmlFor="password"
+                  className="text-lg font-normal text-[#334158]"
+                >
+                  Password
+                </label>
+                <Link
+                  to="/forgot-password"
+                  className="text-sm text-[#334158] font-normal"
+                >
+                  Forgot password?
+                </Link>
               </div>
               <div className="absolute inset-y-0 right-0 pr-3 top-5 flex items-center">
                 {showPassword ? (
@@ -101,7 +119,9 @@ const Login = () => {
           </form>
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4">
             <div className="border-b border-[#F0F2F5] w-16 lg:w-36 h-2"></div>
-            <p className="text-center text-sm mt-3 mb-3 cursor-pointer whitespace-nowrap">or sign in with</p>
+            <p className="text-center text-sm mt-3 mb-3 cursor-pointer whitespace-nowrap">
+              or sign in with
+            </p>
             <div className="border-b border-[#F0F2F5] w-16 lg:w-36 h-2"></div>
           </div>
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4 cursor-pointer">
@@ -111,14 +131,17 @@ const Login = () => {
           </div>
           <p className="text-[#334158] text-base font-normal mt-8 text-center">
             Are you new here?
-            <Link to="/signup" className="text-base font-semibold text-[#F97699] pl-4">
+            <Link
+              to="/signup"
+              className="text-base font-semibold text-[#F97699] pl-4"
+            >
               Sign Up
             </Link>
           </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

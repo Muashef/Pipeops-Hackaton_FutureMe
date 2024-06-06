@@ -1,27 +1,42 @@
-import React, { useState } from 'react'
-import AuthLogo from '../../assets/auth_logo.svg';
-import Goggle from '../../assets/google.svg';
-import FB from '../../assets/fb.svg';
-import Apple from '../../assets/apple.svg';
+import React, { useState } from "react";
+import AuthLogo from "../../assets/auth_logo.svg";
+import Goggle from "../../assets/google.svg";
+import FB from "../../assets/fb.svg";
+import Apple from "../../assets/apple.svg";
 import { CiMail } from "react-icons/ci";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-
+import auth from "../../../firebase.config";
 const Signup = () => {
-    const [showPassword, setShowPassword] = useState(false);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-      };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-      const handleSignUp = async (e) => {
-  
-      };
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: name,
+        });
+        // TODO : Handle case after signup
+      })
+      .catch((error) => {
+        // Handle error
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="flex h-screen">
@@ -124,7 +139,10 @@ const Signup = () => {
                 htmlFor="remember"
                 className="ml-2 block text-sm text-gray-900"
               >
-                I agree to the <span className='text-[#334158] text-lg underline font-medium'>Terms and condition</span>
+                I agree to the{" "}
+                <span className="text-[#334158] text-lg underline font-medium">
+                  Terms and condition
+                </span>
               </label>
             </div>
             <button
@@ -136,7 +154,9 @@ const Signup = () => {
           </form>
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4">
             <div className="border-b border-[#F0F2F5] w-16 lg:w-36 h-2"></div>
-            <p className="text-center text-sm mt-3 mb-3 cursor-pointer whitespace-nowrap">or sign up with</p>
+            <p className="text-center text-sm mt-3 mb-3 cursor-pointer whitespace-nowrap">
+              or sign up with
+            </p>
             <div className="border-b border-[#F0F2F5] w-16 lg:w-36 h-2"></div>
           </div>
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4 cursor-pointer">
@@ -146,14 +166,17 @@ const Signup = () => {
           </div>
           <p className="text-[#334158] text-base font-normal mt-8 text-center">
             Already have an account?
-            <Link to="/login" className="text-base font-semibold text-[#F97699] pl-4">
+            <Link
+              to="/login"
+              className="text-base font-semibold text-[#F97699] pl-4"
+            >
               Sign In
             </Link>
           </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

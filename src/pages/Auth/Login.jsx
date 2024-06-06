@@ -4,9 +4,17 @@ import Goggle from "../../assets/google.svg";
 import FB from "../../assets/fb.svg";
 import Apple from "../../assets/apple.svg";
 import { CiMail } from "react-icons/ci";
+import { ToastContainer, Zoom, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.config";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,21 +26,59 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = async (e) => {
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    setLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        //TO DO : Handle case after sign in
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // TODO: Handle error case.
-      })
-      .finally(() => {
-        setLoading(false);
+    if (validate()) {
+      setLoading(true);
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log(userCredential);
+
+          navigate("/dashboard");
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+          if (
+            error.code === "auth/wrong-password" ||
+            error.code === "auth/invalid-email"
+          ) {
+            toast.error("Incorrect email or password. Please try again.", {
+              theme: "colored",
+            });
+          } else if (error.code === "auth/invalid-credential") {
+            toast.error("Incorrect Email Address or Password.", {
+              theme: "colored",
+            });
+          } else {
+            toast.error("An error occurred. Please try again later.", {
+              theme: "colored",
+            });
+            console.error(error);
+          }
+        });
+    }
+  };
+
+  const validate = () => {
+    let result = true;
+    if (email === "" || email === null) {
+      result = false;
+      toast.warning("Please Enter Email Address", {
+        theme: "light",
+        autoClose: 3000,
       });
+    }
+    if (password === "" || password === null) {
+      result = false;
+      toast.error("Please Enter Password", {
+        theme: "light",
+        autoClose: 3000,
+      });
+    }
+    return result;
   };
 
   return (
@@ -41,7 +87,7 @@ const Login = () => {
         <img className="object-cover h-full w-full" src={AuthLogo} alt="Logo" />
       </div>
       <div className="w-full md:w-1/2 flex md:px-16 bg-white overflow-y-auto justify-center flex-col max-md:items-center">
-        <div className="max-w-md p-6 mt-32 md:mt-28">
+        <div className="max-w-md p-6 mt-32 md:mt-20">
           <h2 className="text-2xl text-center text-[#334158] font-semibold mb-2">
             Sign into your account
           </h2>
@@ -83,16 +129,16 @@ const Login = () => {
                   Forgot password?
                 </Link>
               </div>
-              <div className="absolute inset-y-0 right-0 pr-3 top-5 flex items-center">
+              <div className="absolute inset-y-0 left-3 top-6 pr-3 flex items-center">
                 {showPassword ? (
                   <IoEyeOutline
-                    className="h-4 w-4 text-gray-400 cursor-pointer"
+                    className="h-5 w-5 text-gray-400 cursor-pointer"
                     onClick={togglePasswordVisibility}
                     aria-hidden="true"
                   />
                 ) : (
                   <IoEyeOffOutline
-                    className="h-4 w-4 text-gray-400 cursor-pointer"
+                    className="h-5 w-5 text-gray-400 cursor-pointer"
                     onClick={togglePasswordVisibility}
                     aria-hidden="true"
                   />
@@ -101,7 +147,7 @@ const Login = () => {
               <input
                 id="password-input"
                 type={showPassword ? "text" : "password"}
-                className="rounded-md px-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
+                className="rounded-md pl-10 pr-4 py-3 w-full bg-[#F8F8F8] placeholder:text-[#D6D6D6] border border-[#F8F8F8] outline-none"
                 name="password"
                 required
                 autoComplete="off"
@@ -112,6 +158,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
+              onClick={handleLogin}
               className="w-full py-3 px-4 mt-8 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#F97699]"
             >
               {loading ? "Loading" : "Sign In"}
@@ -127,7 +174,7 @@ const Login = () => {
           <div className="flex items-center justify-center space-x-4 mt-4 mb-4 cursor-pointer">
             <img src={Goggle} alt="google" />
             <img src={FB} alt="facebook" />
-            <img src={Apple} alt="apple" />
+            {/* <img src={Apple} alt="apple" /> */}
           </div>
           <p className="text-[#334158] text-base font-normal mt-8 text-center">
             Are you new here?
@@ -139,6 +186,7 @@ const Login = () => {
             </Link>
           </p>
         </div>
+        <ToastContainer transition={Zoom} />
       </div>
     </div>
   );

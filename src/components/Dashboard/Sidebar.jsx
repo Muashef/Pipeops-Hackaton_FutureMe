@@ -11,7 +11,7 @@ import Badge from "./Badge";
 import SidebarUser from "./SidebarUser";
 function Sidebar() {
   return (
-    <div className="sidebar px-6 py-8 w-1/5 flex flex-col justify-between h-[100%] bg-red-50">
+    <div className="sidebar px-6 py-8 w-1/5 flex flex-col justify-between h-[100%] bg-red-50 fixed left-0 top-0 bottom-0">
       <div>
         <img src={logo} className="w-48 mb-6" />
         <ul className="border-b-[3px] w-full border-dashed">

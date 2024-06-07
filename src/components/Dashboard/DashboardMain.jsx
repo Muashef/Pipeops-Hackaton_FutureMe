@@ -1,3 +1,5 @@
+import Date from "./DashboardDate";
+import Event from "./Event";
 import Features from "./Features";
 import Overview from "./Overview";
 import Profile from "./Profile";
@@ -15,8 +17,10 @@ function DashboardMain() {
         <Overview />
         <Features />
       </div>
-      <div>
+      <div className="flex flex-col justify-start items-end lg:mr-6 gap-4">
         <Profile />
+        <Date />
+        <Event />
       </div>
     </>
   );

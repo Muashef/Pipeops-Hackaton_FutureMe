@@ -5,29 +5,33 @@ import career from "../../assets/solid-icon-2.svg";
 import profile from "../../assets/solid-icon-3.svg";
 import notifications from "../../assets/solid-icon-4.svg";
 import settings from "../../assets/solid-icon-5.svg";
-import { Link } from 'react-router-dom'
-import SidebarLInk from "./SidebarLInk";
+import SidebarLink from "./SidebarLink";
 import Badge from "./Badge";
 import SidebarUser from "./SidebarUser";
+const sidebar1 = [
+  { img: dash, text: "Dashboard" },
+  { img: task, text: "Task" },
+  { img: career, text: "Career" },
+];
+const sidebar2 = [
+  { img: profile, text: "Profile" },
+  { img: notifications, text: "Notifications", children: <Badge /> },
+  { img: settings, text: "Settings", to: "/settings" },
+];
 function Sidebar() {
   return (
-    <div className="sidebar px-6 py-8 w-1/5 flex flex-col justify-between h-[100%] fixed left-0 top-0 bottom-0">
+    <div className="sidebar px-6 py-8 w-1/5 flex flex-col justify-between h-[100%] bg-white fixed">
       <div>
         <img src={logo} className="w-48 mb-6" />
         <ul className="border-b-[3px] w-full border-dashed">
-          <SidebarLInk img={dash} text="Dashboard" />
-          <SidebarLInk img={task} text="Task" />
-          <SidebarLInk img={career} text="Career" />
+          {sidebar1.map((link, i) => (
+            <SidebarLink text={link.text} img={link.img} key={i} />
+          ))}
         </ul>
-        <hr/>
         <ul>
-          <SidebarLInk img={profile} text="Profile" />
-          <SidebarLInk img={notifications} text="Notifications">
-            <Badge />
-          </SidebarLInk>
-          <Link to={'/settings'}>
-          <SidebarLInk img={settings} text="Settings" />
-          </Link>
+          {sidebar2.map((link, i) => (
+            <SidebarLink text={link.text} img={link.img} key={i} to={link.to} />
+          ))}
         </ul>
       </div>
       <SidebarUser

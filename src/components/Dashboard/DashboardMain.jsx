@@ -4,7 +4,7 @@ import Search from "./Search";
 
 function DashboardMain() {
   return (
-    <div className="w-3/5 py-4 px-8">
+    <div className="w-3/5 py-4 px-8 lg:ml-[20%]">
       <Search />
       <div>
         <h1 className="text-2xl font-semibold">Welcome Aisha,</h1>

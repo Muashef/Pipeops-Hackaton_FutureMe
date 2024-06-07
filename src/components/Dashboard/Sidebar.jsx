@@ -5,12 +5,13 @@ import career from "../../assets/solid-icon-2.svg";
 import profile from "../../assets/solid-icon-3.svg";
 import notifications from "../../assets/solid-icon-4.svg";
 import settings from "../../assets/solid-icon-5.svg";
+import { Link } from 'react-router-dom'
 import SidebarLInk from "./SidebarLInk";
 import Badge from "./Badge";
 import SidebarUser from "./SidebarUser";
 function Sidebar() {
   return (
-    <div className="sidebar px-6 py-8 w-1/5 flex flex-col justify-between h-[100%] bg-red-50">
+    <div className="sidebar px-6 py-8 w-1/5 flex flex-col justify-between h-[100%] bg-red-50 fixed left-0 top-0 bottom-0">
       <div>
         <img src={logo} className="w-48 mb-6" />
         <ul className="border-b-[3px] w-full border-dashed">
@@ -24,7 +25,9 @@ function Sidebar() {
           <SidebarLInk img={notifications} text="Notifications">
             <Badge />
           </SidebarLInk>
+          <Link to={'/settings'}>
           <SidebarLInk img={settings} text="Settings" />
+          </Link>
         </ul>
       </div>
       <SidebarUser

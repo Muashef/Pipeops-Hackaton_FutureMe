@@ -43,7 +43,7 @@ function Navigation({ links }) {
           })}
         </ul>
         <div className="get-started">
-          <Link to={"/"}>Get Started</Link>
+          <Link to={"/signup"}>Get Started</Link>
         </div>
 
         <RxHamburgerMenu
@@ -68,7 +68,7 @@ function Navigation({ links }) {
             })}
           </ul>
           <div className="get-started">
-            <Link to={"/"}>Get Started</Link>
+            <Link to={"/signup"}>Get Started</Link>
           </div>
         </div>
       )}

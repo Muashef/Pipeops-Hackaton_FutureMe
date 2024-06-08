@@ -479,21 +479,10 @@
     padding: 0px 10px;
   }
 } /*# sourceMappingURL=styles.css.map */
-.active-career {
-  transition: all 5s ease;
+img.arrow {
+  transition: transform 0.3s ease;
 }
- /* .custom-select select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      position: relative;
-    }
 
-    .custom-select::after {
-      content: '▼';
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      pointer-events: none;
-    } */
+img.arrow.open {
+  transform: rotate(180deg);
+}

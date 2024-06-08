@@ -5,6 +5,10 @@ import comp1 from "../../assets/comp1.svg";
 import comp2 from "../../assets/comp2.svg";
 import comp3 from "../../assets/comp3.svg";
 import arr from "../../assets/arr.svg";
+import downArr from "../../assets/downArr.svg";
+import filter from "../../assets/filter.svg";
+import Button from "./Button";
+import CustomDropdown from "./CustomDropdown";
 const tabBtn = [{ text: "Explore" }, { text: "Careers" }];
 const careers0 = [
   {
@@ -52,8 +56,14 @@ const careers1 = [
     salary: "450,000",
   },
 ];
+const opts = [
+  { label: "All Categories", value: "", disabled: true },
+  { label: "Salary", value: "salary" },
+  { label: "Recommended", value: "recommended" },
+  { label: "Location", value: "location" },
+];
 function Careers() {
-  const [category, setCategory] = useState("");
+  //   const [category, setCategory] = useState("");
   const [active, setActive] = useState(0);
   return (
     <div className="careersContainer ml-[20%] px-8 mt-[-1em]">
@@ -69,12 +79,12 @@ function Careers() {
             />
           ))}
         </span>
-        <span className="custom-select">
-          <select
+        <span className="custom-select flex gap-6 h-full relative bottom-3">
+          {/* <select
             id="categories"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="appearance-none outline-none border-[3px] text-sm py-1 px-4"
+            className="appearance-none outline-none border-[3px] rounded-md text-sm py-1 px-5"
           >
             <option disabled selected value="">
               All Categories
@@ -82,33 +92,42 @@ function Careers() {
             <option>Salary</option>
             <option>Recommended</option>
             <option>Location</option>
-          </select>
-          <button className="border-4 border-[#]">Filter</button>
+          </select> */}
+          <CustomDropdown
+            options={opts}
+            arr={downArr}
+          />
+          <button className="border-[3px] border-[#F97699] rounded-md px-4 text-[#F97699] text-sm">
+            <img src={filter} className="inline" />
+            Filter
+          </button>
         </span>
       </div>
-      <div className="careers my-3 flex justify-evenly items-center gap-5">
-        {active === 0 && careers0.map((c, i) => (
-          <Career
-            key={i}
-            jobName={c.jobName}
-            location={c.location}
-            recommended={c.recommended}
-            salary={c.salary}
-            img={c.img}
-          />
-        ))}
-        {active === 1 && careers1.map((c, i) => (
-          <Career
-            key={i}
-            jobName={c.jobName}
-            location={c.location}
-            recommended={c.recommended}
-            salary={c.salary}
-            img={c.img}
-          />
-        ))}
+      <div className="careers mt-3 mb-6 flex justify-evenly items-center gap-5">
+        {active === 0 &&
+          careers0.map((c, i) => (
+            <Career
+              key={i}
+              jobName={c.jobName}
+              location={c.location}
+              recommended={c.recommended}
+              salary={c.salary}
+              img={c.img}
+            />
+          ))}
+        {active === 1 &&
+          careers1.map((c, i) => (
+            <Career
+              key={i}
+              jobName={c.jobName}
+              location={c.location}
+              recommended={c.recommended}
+              salary={c.salary}
+              img={c.img}
+            />
+          ))}
       </div>
-      <div className="w-full h-1/2 bg-slate-700">fvvovizbisnzuo</div>
+      <Pagination />
     </div>
   );
 }
@@ -149,4 +168,14 @@ function Career({ jobName, salary, recommended, location, img }) {
 function Recommended() {
   return <img src={badge} className="inline" />;
 }
+function Pagination() {
+  return (
+    <div className="pagination my-4 w-4/5 mx-auto flex justify-between items-center">
+      <Button>Previous</Button>
+      <span className="font-bold text-sm">Page 1 of 30</span>
+      <Button>Next</Button>
+    </div>
+  );
+}
+
 export default Careers;

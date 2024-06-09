@@ -1,6 +1,5 @@
 import React from "react";
 import Questionnaire from "../components/Questionnaire/Questionnaire";
-import { Interest, Skills } from "../components/Questionnaire/Questionnaire";
 import { QuestionnaireProvider } from "../components/Questionnaire/QuestionnaireProvider/QuestionnaireProvider";
 
 function QuestionnairePage() {

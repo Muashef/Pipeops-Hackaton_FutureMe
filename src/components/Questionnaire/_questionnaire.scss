@@ -1,0 +1,57 @@
+.questionnaire {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left,
+  &__right {
+    background: white;
+    box-sizing: border-box;
+    padding: 3em;
+    box-shadow: inset 0px 0px 4px #e4e7ec, 0px 4px 20px #e4e7ec;
+    border-radius: 10px;
+  }
+  &__left {
+    width: 50%;
+  }
+  &__right {
+    width: 40%;
+
+    .component__select {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 20px;
+      color: #98a2b3;
+      font-family: "Poppins";
+      font-weight: 500;
+      &.active {
+        color: #f97699;
+        cursor: pointer;
+
+        .index {
+          color: white;
+          background: #f97699;
+        }
+      }
+
+      .index {
+        // padding: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #98a2b3;
+        font-size: 1.3em;
+        cursor: pointer;
+      }
+      h4 {
+        cursor: pointer;
+      }
+    }
+  }
+}

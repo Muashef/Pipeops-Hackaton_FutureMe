@@ -19,8 +19,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  box-shadow: 2px 10px 20px rgba(255, 255, 255, 0.623),
-    2px 20px 20px rgba(255, 255, 255, 0.726);
+  box-shadow: 2px 10px 20px rgba(255, 255, 255, 0.623), 2px 20px 20px rgba(255, 255, 255, 0.726);
 }
 .header .lock img,
 .header .unlock img {
@@ -292,8 +291,7 @@
   padding-top: 20vh;
   margin-bottom: 20px;
   text-align: center;
-  background-image: url(../assets/footer_bg.png), url(../assets/footer_2.png),
-    linear-gradient(45deg, #000, #000);
+  background-image: url(../assets/footer_bg.png), url(../assets/footer_2.png), linear-gradient(45deg, #000, #000);
   background-position: left center, bottom right, center;
   background-repeat: no-repeat;
   background-size: 10%, 10%, cover;
@@ -469,6 +467,56 @@
   font-weight: 500;
 }
 
+.questionnaire__container {
+  display: flex;
+  justify-content: space-between;
+}
+.questionnaire__left, .questionnaire__right {
+  background: white;
+  box-sizing: border-box;
+  padding: 3em;
+  box-shadow: inset 0px 0px 4px #e4e7ec, 0px 4px 20px #e4e7ec;
+  border-radius: 10px;
+}
+.questionnaire__left {
+  width: 50%;
+}
+.questionnaire__right {
+  width: 40%;
+}
+.questionnaire__right .component__select {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 20px;
+  color: #98a2b3;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+.questionnaire__right .component__select.active {
+  color: #f97699;
+  cursor: pointer;
+}
+.questionnaire__right .component__select.active .index {
+  color: white;
+  background: #f97699;
+}
+.questionnaire__right .component__select .index {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #98a2b3;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+.questionnaire__right .component__select h4 {
+  cursor: pointer;
+}
+
 .container {
   max-width: 1200px;
   width: 99%;
@@ -478,11 +526,4 @@
   .container {
     padding: 0px 10px;
   }
-} /*# sourceMappingURL=styles.css.map */
-img.arrow {
-  transition: transform 0.3s ease;
-}
-
-img.arrow.open {
-  transform: rotate(180deg);
-}
+}/*# sourceMappingURL=styles.css.map */

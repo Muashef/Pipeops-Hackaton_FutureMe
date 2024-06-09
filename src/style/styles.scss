@@ -1,15 +1,13 @@
 @use "../components/Home/header";
 @use "../components/Navigation/nav";
+@use "../components/Questionnaire/questionnaire";
 
+.container {
+  max-width: 1200px;
+  width: 99%;
+  margin: auto;
 
-.container{
-    max-width: 1200px;
-    width: 99%;
-    margin: auto;
-
-
-    @media screen and (max-width: 720px) {
-        padding: 0px 10px;
-    }
-
+  @media screen and (max-width: 720px) {
+    padding: 0px 10px;
+  }
 }

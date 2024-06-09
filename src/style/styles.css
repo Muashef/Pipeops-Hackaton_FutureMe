@@ -467,9 +467,27 @@
   font-weight: 500;
 }
 
+.questionnaire h2.title,
+.questionnaire .tag {
+  text-align: center;
+  font-family: "Poppins";
+}
+.questionnaire .title {
+  font-size: 2em;
+  font-size: 500;
+}
+.questionnaire .tag {
+  color: #8c94a6;
+}
 .questionnaire__container {
   display: flex;
   justify-content: space-between;
+  margin-top: 3em;
+}
+@media screen and (max-width: 960px) {
+  .questionnaire__container {
+    flex-direction: column-reverse;
+  }
 }
 .questionnaire__left, .questionnaire__right {
   background: white;
@@ -478,11 +496,44 @@
   box-shadow: inset 0px 0px 4px #e4e7ec, 0px 4px 20px #e4e7ec;
   border-radius: 10px;
 }
+@media screen and (max-width: 400px) {
+  .questionnaire__left, .questionnaire__right {
+    padding: 2em;
+  }
+}
 .questionnaire__left {
   width: 50%;
 }
+@media screen and (max-width: 940px) {
+  .questionnaire__left {
+    width: 100%;
+  }
+}
+.questionnaire__left .buttons {
+  margin-top: 30px;
+}
+.questionnaire__left .buttons button {
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.questionnaire__left .buttons button:nth-child(1) {
+  color: #f97699;
+  border: 1px solid #f97699;
+  margin-right: 30px;
+}
+.questionnaire__left .buttons button:nth-child(2) {
+  color: white;
+  background-color: #f97699;
+  border: 1px solid white;
+}
 .questionnaire__right {
   width: 40%;
+}
+@media screen and (max-width: 940px) {
+  .questionnaire__right {
+    width: 100%;
+    margin-bottom: 40px;
+  }
 }
 .questionnaire__right .component__select {
   display: flex;
@@ -515,6 +566,32 @@
 }
 .questionnaire__right .component__select h4 {
   cursor: pointer;
+}
+.questionnaire__inview form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.questionnaire__inview form input[type=text] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #f97699;
+  outline: none;
+}
+.questionnaire__inview form .checkbox__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins";
+  font-weight: 500;
+  margin: 15px 0px;
+}
+.questionnaire__inview form .checkbox__label input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  padding: 30px;
 }
 
 .container {

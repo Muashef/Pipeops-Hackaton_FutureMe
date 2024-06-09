@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useQuestionnaire } from "./QuestionnaireProvider/QuestionnaireProvider";
 
@@ -22,8 +21,6 @@ function Questionnaire() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(inView == compList.length - 1);
-
     if (newInterest && !interests.includes(newInterest)) {
       setInterests((prevInterests) => [...prevInterests, newInterest]);
       setNewInterest(""); // Clear the input after adding
@@ -35,24 +32,18 @@ function Questionnaire() {
     }
   };
 
-  const setInterestInfo = (updatedInterests) => {
-    setInterests(updatedInterests);
-  };
-
   const compList = [
-    <Interest
-      key={0}
-      interests={interests}
-      setInterestValue={setInterestInfo}
-    />,
+    <Interest key={0} />,
     <Skills key={1} />,
+    <WorkEnv key={2} />,
   ];
 
   return (
-    <div className="questionnnaire container">
-      Questionnaire
-      <h2>Interests and Passions</h2>
-      <p>Fill out these details to predict a suited career path</p>
+    <div className="questionnaire container">
+      <h2 className="title">Career Questionnaire</h2>
+      <p className="tag">
+        Fill out these details to predict a suited career path
+      </p>
       <div className="questionnaire__container">
         <div className="questionnaire__left">
           <div className="questionnaire__inview">{compList[inView]}</div>
@@ -120,31 +111,29 @@ export function Interest() {
   };
 
   return (
-    <div>
-      <form>
-        <div>
-          <input
-            type="text"
-            value={newInterest}
-            onChange={handleInputChange}
-            placeholder="Enter a new interest"
-          />
-          {interestLabels.map((element, index) => {
-            return (
-              <div key={index}>
-                <input
-                  type="checkbox"
-                  name={element}
-                  checked={interests.includes(element)}
-                  onChange={handleCheckboxChange}
-                />
-                <label>{element}</label>
-              </div>
-            );
-          })}
-        </div>
-      </form>
-    </div>
+    <form>
+      <div>
+        <input
+          type="text"
+          value={newInterest}
+          onChange={handleInputChange}
+          placeholder="What activities do you enjoy the most in your free time?"
+        />
+        {interestLabels.map((element, index) => {
+          return (
+            <div key={index} className="checkbox__label">
+              <input
+                type="checkbox"
+                name={element}
+                checked={interests.includes(element)}
+                onChange={handleCheckboxChange}
+              />
+              <label>{element}</label>
+            </div>
+          );
+        })}
+      </div>
+    </form>
   );
 }
 
@@ -157,12 +146,12 @@ export const Skills = () => {
   const { skills, setSkills, newSkill, setNewSkill } = useQuestionnaire();
 
   const interestLabels = [
-    "Collaborative team setting",
-    "Independent and quiet",
-    "Fast-paced and dynamic",
-    "Structured and organized",
-    "Flexible and changing",
-    "Hands-on and practical",
+    "Analytical thinking",
+    "Creative problem-solving",
+    "Effective communication",
+    "Technical skills",
+    "Leadership",
+    "Research and analysis",
   ];
 
   const handleInputChange = (event) => {
@@ -182,18 +171,18 @@ export const Skills = () => {
   };
 
   return (
-    <div>
+    <>
       <form>
         <div>
           <input
             type="text"
             value={newSkill}
             onChange={handleInputChange}
-            placeholder="Enter a new interest"
+            placeholder="Which skills do you excel at?"
           />
           {interestLabels.map((element, index) => {
             return (
-              <div key={index}>
+              <div key={index} className="checkbox__label">
                 <input
                   type="checkbox"
                   name={element}
@@ -206,6 +195,63 @@ export const Skills = () => {
           })}
         </div>
       </form>
-    </div>
+    </>
+  );
+};
+
+export const WorkEnv = () => {
+  const { work, setWork, newWork, setNewWork } = useQuestionnaire();
+
+  const interestLabels = [
+    "Collaborative team setting",
+    "Independent and quiet",
+    "Fast-paced and dynamic",
+    "Structured and organized",
+    "Flexible and changing",
+    "Hands-on and practical",
+  ];
+
+  const handleInputChange = (event) => {
+    setNewWork(event.target.value);
+  };
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    let updatedInterests;
+
+    if (checked) {
+      updatedInterests = [...work, name];
+    } else {
+      updatedInterests = work.filter((interest) => interest !== name);
+    }
+    setWork(updatedInterests);
+  };
+
+  return (
+    <>
+      <form>
+        <div>
+          <input
+            type="text"
+            value={newWork}
+            onChange={handleInputChange}
+            placeholder="What type of work environment do you prefer?"
+          />
+          {interestLabels.map((element, index) => {
+            return (
+              <div key={index} className="checkbox__label">
+                <input
+                  type="checkbox"
+                  name={element}
+                  checked={work.includes(element)}
+                  onChange={handleCheckboxChange}
+                />
+                <label>{element}</label>
+              </div>
+            );
+          })}
+        </div>
+      </form>
+    </>
   );
 };

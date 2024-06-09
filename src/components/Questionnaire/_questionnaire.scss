@@ -1,7 +1,25 @@
+$pink: #f97699;
 .questionnaire {
+  h2.title,
+  .tag {
+    text-align: center;
+    font-family: "Poppins";
+  }
+  .title {
+    font-size: 2em;
+    font-size: 500;
+  }
+  .tag {
+    color: #8c94a6;
+  }
   &__container {
     display: flex;
     justify-content: space-between;
+    margin-top: 3em;
+
+    @media screen and (max-width: 960px) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__left,
@@ -11,12 +29,41 @@
     padding: 3em;
     box-shadow: inset 0px 0px 4px #e4e7ec, 0px 4px 20px #e4e7ec;
     border-radius: 10px;
+
+    @media screen and (max-width: 400px) {
+      padding: 2em;
+    }
   }
   &__left {
     width: 50%;
+    @media screen and (max-width: 940px) {
+      width: 100%;
+    }
+    .buttons {
+      margin-top: 30px;
+      button {
+        border-radius: 10px;
+        padding: 10px 20px;
+        &:nth-child(1) {
+          color: $pink;
+          border: 1px solid $pink;
+          margin-right: 30px;
+        }
+        &:nth-child(2) {
+          color: white;
+          background-color: $pink;
+
+          border: 1px solid white;
+        }
+      }
+    }
   }
   &__right {
     width: 40%;
+    @media screen and (max-width: 940px) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
     .component__select {
       display: flex;
@@ -37,7 +84,6 @@
       }
 
       .index {
-        // padding: 10px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -51,6 +97,36 @@
       }
       h4 {
         cursor: pointer;
+      }
+    }
+  }
+
+  &__inview {
+    form {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      input[type="text"] {
+        padding: 10px 20px;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid $pink;
+        outline: none;
+      }
+
+      .checkbox__label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Poppins";
+        font-weight: 500;
+        margin: 15px 0px;
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+          padding: 30px;
+        }
       }
     }
   }

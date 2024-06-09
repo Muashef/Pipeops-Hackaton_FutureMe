@@ -7,8 +7,10 @@ export const QuestionnaireProvider = ({ children }) => {
   const [inView, setInView] = useState(0);
   const [interests, setInterests] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [work, setWork] = useState([]);
   const [newInterest, setNewInterest] = useState("");
-  const [newSkill, setNewSkill] = useState(""); 
+  const [newSkill, setNewSkill] = useState("");
+  const [newWork, setNewWork] = useState("");
 
   return (
     <QuestionnaireContext.Provider
@@ -23,6 +25,10 @@ export const QuestionnaireProvider = ({ children }) => {
         setSkills,
         newSkill,
         setNewSkill,
+        work,
+        setWork,
+        newWork,
+        setNewWork,
       }}
     >
       {children}

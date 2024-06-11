@@ -9,9 +9,9 @@ import SidebarLink from "./SidebarLInk";
 import Badge from "./Badge";
 import SidebarUser from "./SidebarUser";
 const sidebar1 = [
-  { img: dash, text: "Dashboard" },
-  { img: task, text: "Task" },
-  { img: career, text: "Career" },
+  { img: dash, text: "Dashboard", link: "" },
+  { img: task, text: "Task", link: "" },
+  { img: career, text: "Career", link: "/questionnaire" },
 ];
 const sidebar2 = [
   { img: profile, text: "Profile" },
@@ -25,7 +25,12 @@ function Sidebar() {
         <img src={logo} className="w-48 mb-6" />
         <ul className="border-b-[3px] w-full border-dashed">
           {sidebar1.map((link, i) => (
-            <SidebarLink text={link.text} img={link.img} key={i} />
+            <SidebarLink
+              text={link.text}
+              img={link.img}
+              key={i}
+              to={link.link}
+            />
           ))}
         </ul>
         <ul>

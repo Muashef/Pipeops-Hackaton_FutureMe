@@ -492,7 +492,7 @@
 .questionnaire__left, .questionnaire__right {
   background: white;
   box-sizing: border-box;
-  padding: 3em;
+  padding: 4em;
   box-shadow: inset 0px 0px 4px #e4e7ec, 0px 4px 20px #e4e7ec;
   border-radius: 10px;
 }
@@ -503,6 +503,9 @@
 }
 .questionnaire__left {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 @media screen and (max-width: 940px) {
   .questionnaire__left {
@@ -534,6 +537,25 @@
     width: 100%;
     margin-bottom: 40px;
   }
+}
+.questionnaire__right .help {
+  max-width: 220px;
+  width: 90%;
+}
+.questionnaire__right .help h4 {
+  color: #344054;
+  font-weight: 700;
+  margin: 10px 0px;
+}
+.questionnaire__right .help p {
+  color: #98a2b3;
+}
+.questionnaire__right .help button {
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  color: #f97699;
+  border: 1px solid #f97699;
 }
 .questionnaire__right .component__select {
   display: flex;

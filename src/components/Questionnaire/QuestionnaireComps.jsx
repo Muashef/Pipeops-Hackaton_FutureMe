@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useQuestionnaire } from "./QuestionnaireProvider/QuestionnaireProvider";
 
+///Each function is one page of the questionnaire
 export function Interest() {
   const { interests, setInterests, newInterest, setNewInterest } =
     useQuestionnaire();
@@ -159,6 +160,121 @@ export const WorkEnv = () => {
                   type="checkbox"
                   name={element}
                   checked={work.includes(element)}
+                  onChange={handleCheckboxChange}
+                />
+                <label>{element}</label>
+              </div>
+            );
+          })}
+        </div>
+      </form>
+    </>
+  );
+};
+
+export const CareerGoals = () => {
+  const { career, setCareer, newCareerGoal, setNewCareerGoal } =
+    useQuestionnaire();
+
+  const interestLabels = [
+    "High earning potential",
+    "Work-life balance",
+    "Creative freedom",
+    "Helping others",
+    "Continuous learning",
+    "Career advancement",
+  ];
+
+  const handleInputChange = (event) => {
+    setNewCareerGoal(event.target.value);
+  };
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    let updatedInterests;
+
+    if (checked) {
+      updatedInterests = [...career, name];
+    } else {
+      updatedInterests = career.filter((interest) => interest !== name);
+    }
+    setCareer(updatedInterests);
+  };
+
+  return (
+    <>
+      <form>
+        <div>
+          <input
+            type="text"
+            value={newCareerGoal}
+            onChange={handleInputChange}
+            placeholder="What is your primary career goal?"
+          />
+          {interestLabels.map((element, index) => {
+            return (
+              <div key={index} className="checkbox__label">
+                <input
+                  type="checkbox"
+                  name={element}
+                  checked={career.includes(element)}
+                  onChange={handleCheckboxChange}
+                />
+                <label>{element}</label>
+              </div>
+            );
+          })}
+        </div>
+      </form>
+    </>
+  );
+};
+
+export const JobRole = () => {
+  const { jobRole, setJobRole, newJobRole, setNewJobRole } = useQuestionnaire();
+
+  const interestLabels = [
+    "Innovator and Creator ",
+    "Organizer  and Planner",
+    "Advisor and counsellor",
+    "Leader and manager",
+    "Technician and specialist",
+    "Researcher and analyst",
+  ];
+
+  const handleInputChange = (event) => {
+    setNewJobRole(event.target.value);
+  };
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    let updatedInterests;
+
+    if (checked) {
+      updatedInterests = [...jobRole, name];
+    } else {
+      updatedInterests = jobRole.filter((interest) => interest !== name);
+    }
+    setJobRole(updatedInterests);
+  };
+
+  return (
+    <>
+      <form>
+        <div>
+          <input
+            type="text"
+            value={newJobRole}
+            onChange={handleInputChange}
+            placeholder="What is your primary career goal?"
+          />
+          {interestLabels.map((element, index) => {
+            return (
+              <div key={index} className="checkbox__label">
+                <input
+                  type="checkbox"
+                  name={element}
+                  checked={jobRole.includes(element)}
                   onChange={handleCheckboxChange}
                 />
                 <label>{element}</label>

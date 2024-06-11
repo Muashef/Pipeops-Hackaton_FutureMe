@@ -11,8 +11,8 @@ import QuestionnairePage from "./pages/QuestionnairePage";
 
 function App() {
   const router = createBrowserRouter([
-    // { path: "/", element: <Home /> },
-    { path: "/", element: <QuestionnairePage /> },
+    { path: "/", element: <Home /> },
+    { path: "/questionnaire", element: <QuestionnairePage /> },
     { path: "/signup", element: <Signup /> },
     { path: "/login", element: <Login /> },
     { path: "/forgot-password", element: <Forgotpassword /> },
